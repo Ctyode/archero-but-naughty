@@ -1,3 +1,5 @@
+* {-webkit-font-smoothing: antialiased;}
+
 body {
   margin: 0;
   font-family: 'Avenir Next';
@@ -47,9 +49,10 @@ body {
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.14), 0px 3px 1px rgba(0, 0, 0, 0.12), 0px 1px 5px rgba(0, 0, 0, 0.2);
   align-items: center;
   justify-content: center;
+  transition: 0.5s ease;
 }
 
-.skill_item.selected-item-unavailable {
+.skill_item.item-unavailable {
   box-shadow: 0px 0px 8px 1px rgb(255 255 255 / 58%);
   border: 3.5px solid #474757;
   outline: 2px solid white;
@@ -57,22 +60,22 @@ body {
   margin: 17px;
 }
 
-.skill_item.selected-item-available {
-  box-shadow: 0px 0px 8px 1px rgb(255 255 255 / 58%);
-  border: 3.5px solid #474757;
-  outline: 2px solid white;
+.skill_item.item-available {
   border-radius: 0px;
   margin: 17px;
   background-color: white;
 }
 
-.skill_item.selected-item-active {
-  box-shadow: 0px 0px 8px 1px rgb(255 255 255 / 58%);
-  border: 3.5px solid #474757;
-  outline: 2px solid white;
+.skill_item.item-active {
   border-radius: 0px;
   margin: 17px;
   background: linear-gradient(137.23deg, #FAA161 24.03%, #F71C92 199.29%);
+}
+
+.skill_item.selected_item {
+  box-shadow: 0px 0px 8px 1px rgb(255 255 255 / 58%) !important;
+  border: 3.5px solid #474757 !important;
+  outline: 2px solid white !important;
 }
 
 .skill_item.item-active {
@@ -93,12 +96,23 @@ body {
   background-color: white;
 }
 
-
 .skill_item .icon {
   width: 32px;
   height: max-content;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.infocontent {
+  position: absolute;
+  transition: 0.5s ease-out;
+}
+
+.info_image {
+  border-radius: 10px;
+  background-size: contain;
+  width: 414px;
+  height: 154px;
 }
 
 .info_title {
@@ -107,6 +121,7 @@ body {
   font-size: 21px;
   line-height: 29px;
   color: #FFFFFF;
+  margin-top: 26px;
   margin-left: 20px;
 }
 
@@ -117,8 +132,107 @@ body {
   line-height: 25px;
   color: #FFFFFF;
   background-color: #41414F;
-  padding: 20px;
+  padding: 23px 26px;
   border-radius: 3px;
   width: 363px;
   margin-top: 16px;
+}
+
+.info_buffs {
+  margin-top: 21px;
+}
+
+.info_buff_description {
+  font-family: 'Avenir Next';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 25px;
+  color: #FFFFFF;
+  margin-top: 6px;
+}
+
+.info_cost::before {
+  width: 40px;
+  height: 40px;
+  content: "";
+  float: left;
+  display: block;
+  margin-right: 6px;
+  background: url("interface_icons/money_icon.png") no-repeat;
+  background-size: contain;
+}
+
+.info_cost {
+  font-family: 'Avenir Next';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 40px;
+  margin-left: 14px;
+  color: #FFFFFF;
+  text-shadow: 0px 0.876872px 0.876872px rgba(0, 0, 0, 0.14), 0px 1.75374px 0.876872px rgba(0, 0, 0, 0.12), 0px 0.876872px 2.63062px rgba(0, 0, 0, 0.2);
+}
+
+.info_button {
+  font-family: 'Avenir Next';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+  color: #292929;
+  padding: 7px 22px;
+  border-radius: 4px;
+  border: none;
+}
+
+.info_button_available {background: linear-gradient(137.23deg, #FAA161 24.03%, #F71C92 199.29%);/* 04 dp */box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.2);}
+
+.info_button_unavailable {
+  background-color: #C4C4C4;
+}
+
+.info_button_active {
+  background-color: #474757;
+  color: #FA836D;
+  border: 2px solid #FA836D;
+}
+
+.info_upgrade_container {
+  display: flex;
+  margin-top: 24px;
+}
+
+.text_orange {
+  color: #FA836D;
+}
+
+.tab {
+  margin: auto;
+  width: max-content;
+}
+
+.tablinks {
+  font-family: 'Avenir Next';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+  color: rgba(255, 255, 255, 0.8);
+  background: none;
+  border: none;
+  padding: 15px 30px;
+}
+
+.tablinks.active {
+  color: white;
+  background-size: contain;
+  background-position: bottom -50px left 0;
+  background-image: linear-gradient(90.09deg, #FBA262 -5.72%, #F96F74 100.31%);
+  background-repeat: no-repeat;
+  transition: 0.5s cubic-bezier(0.6, -0.28, 0.74, 0.05);
+}
+
+.menu-header {
+  border-bottom: 1px solid #6C6C6C;
 }
