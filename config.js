@@ -218,7 +218,7 @@ let data = {
 }
 
 let skill_tree = document.getElementById("skill-tree");
-let info_container = document.getElementById("second-container");
+let info_container = document.getElementById("info-container");
 
 
 function checkButtonType(item_name, button) {
@@ -343,6 +343,10 @@ function generateSkillTree() {
 
       // generates info about skill item
 
+      let info_item_container = document.createElement('div');
+      info_item_container.classList.add("info_item_container");
+
+
       let info_item = document.createElement('div');
       info_item.classList.add("infocontent");
       info_item.id = item;
@@ -403,7 +407,8 @@ function generateSkillTree() {
 
       info_item.appendChild(upgrade_container);
 
-      info_container.appendChild(info_item);
+      info_item_container.appendChild(info_item);
+      info_container.appendChild(info_item_container);
 
       
   }
