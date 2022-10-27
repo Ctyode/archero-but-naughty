@@ -23,6 +23,8 @@ body {
 }
 
 .base-menu {
+  display: flex;
+  flex-direction: column;
   width: 1190px;
   height: 785px;
   background-color: #474757;
@@ -32,10 +34,29 @@ body {
   border-radius: 5px;
 }
 
-#Tavern {
-  display:flex;
+.tabcontent {
+  flex-grow: 1;
 }
 
+.tabcontent.visible {
+  visibility: visible;
+}
+
+.tabcontent.hidden {
+  display: none !important;
+  visibility: collapse;
+}
+
+#Tavern {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+}
+
+.skill-tree {
+    align-self: center;
+    justify-self: flex-end;
+}
 
 .skill_item {
   border: none;
@@ -104,10 +125,20 @@ body {
   background-position: center;
 }
 
-.infocontent {
-  margin-top: 50px;
-  right: 35px;
+.info-container {
+  position: relative;
+}
+
+.info_item_container {
   position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.infocontent {
   transition: 0.5s ease-out;
 }
 
@@ -304,7 +335,3 @@ body {
   flex-direction: column;
 }
 
-.skill-tree {
-  margin-top: 200px;
-  margin-left: 110px;
-}

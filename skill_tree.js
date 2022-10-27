@@ -5,7 +5,8 @@ function openTab(evt, tabName) {
   // Get all elements with class="tabcontent" and hide them
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
+    tabcontent[i].classList.remove("visible");
+    tabcontent[i].classList.add("hidden");
   }
 
   // Get all elements with class="tablinks" and remove the class "active"
@@ -15,7 +16,8 @@ function openTab(evt, tabName) {
   }
 
   // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(tabName).style.display = "flex";
+  document.getElementById(tabName).classList.remove("hidden");
+  document.getElementById(tabName).classList.add("visible");
   evt.currentTarget.className += " active";
 }
 
