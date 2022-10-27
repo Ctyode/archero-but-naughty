@@ -40,7 +40,7 @@ body {
 .skill_item {
   border: none;
   outline: none;
-  margin: 20px;
+  /* margin: 30px; */
   display: flex;
   width: 55px;
   height: 55px;
@@ -62,13 +62,13 @@ body {
 
 .skill_item.item-available {
   border-radius: 0px;
-  margin: 17px;
+  /* margin: 17px; */
   background-color: white;
 }
 
 .skill_item.item-active {
   border-radius: 0px;
-  margin: 17px;
+  /* margin: 17px; */
   background: linear-gradient(137.23deg, #FAA161 24.03%, #F71C92 199.29%);
 }
 
@@ -83,7 +83,7 @@ body {
   border: none;
   outline: none;
   border-radius: 0px;
-  margin: 20px;
+  /* margin: 20px; */
   background: linear-gradient(137.23deg, #FAA161 24.03%, #F71C92 199.29%);
 }
 
@@ -92,18 +92,21 @@ body {
   border: none;
   outline: none;
   border-radius: 0px;
-  margin: 20px;
-  background-color: white;
+  z-index: 100;
+  /* margin: 20px; */
+  /* background-color: white; */
 }
 
 .skill_item .icon {
-  width: 32px;
-  height: max-content;
+  max-width: 32px;
+  max-height: 32px;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .infocontent {
+  margin-top: 50px;
+  right: 35px;
   position: absolute;
   transition: 0.5s ease-out;
 }
@@ -119,6 +122,7 @@ body {
   font-style: normal;
   font-weight: 600;
   font-size: 21px;
+  width: 395px;
   line-height: 29px;
   color: #FFFFFF;
   margin-top: 26px;
@@ -235,4 +239,72 @@ body {
 
 .menu-header {
   border-bottom: 1px solid #6C6C6C;
+}
+
+.first_level_container {
+  display: flex;
+}
+
+.second_level_container {
+    display: flex;
+    flex-direction: column;
+    margin-top: -78px;
+}
+
+.third_level_container {
+  margin: 24px 0;
+  display: flex;
+}
+
+.border_vert {
+  width: 0px;
+  background-color: #949494;
+  border: 1px solid #949494;
+  height: 90px;
+  margin: 0 25px;
+}
+
+.border_center_horizontal_short {
+  width: 40px;
+  background-color: #949494;
+  border: 1px solid #949494;
+  height: 0px;
+  margin: 25px 0;
+}
+
+.border_top_horizontal_short {
+  width: 30px;
+  background-color: #949494;
+  border: 1px solid #949494;
+  height: 0px;
+  margin: 0 0px;
+  margin-top: -25px;
+}
+
+.border_bottom_horizontal_short {
+  width: 30px;
+  background-color: #949494;
+  border: 1px solid #949494;
+  height: 0px;
+  margin: 0 0px;
+  margin-top: 98px;
+}
+
+.border_vertical_short {
+  width: 0px;
+  background-color: #949494;
+  border: 1px solid #949494;
+  height: 100px;
+  margin: 0 0;
+  margin-top: -25px;
+}
+
+.border_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.skill-tree {
+  margin-top: 200px;
+  margin-left: 110px;
 }
