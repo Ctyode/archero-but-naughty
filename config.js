@@ -218,7 +218,7 @@ let data = {
 }
 
 let skill_tree = document.getElementById("skill-tree");
-let info_container = document.getElementById("info-container");
+let info_container = document.getElementById("second-container");
 
 
 function checkButtonType(item_name, button) {
