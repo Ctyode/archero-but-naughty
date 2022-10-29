@@ -1,5 +1,23 @@
 * {-webkit-font-smoothing: antialiased;}
 
+@font-face {
+  font-family: "Avenir Next";
+  src: url("/static/fonts/AvenirNext-Medium.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Avenir Next";
+  src: url("/static/fonts/AvenirNext-Demi.ttf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Avenir Next";
+  src: url("/static/fonts/AvenirNext-Bold.ttc");
+  font-weight: 900;
+}
+
 body {
   margin: 0;
   font-family: 'Avenir Next';
@@ -162,7 +180,7 @@ body {
 
 .info_description {
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 15px;
   line-height: 25px;
   color: #FFFFFF;
@@ -201,7 +219,7 @@ body {
 .info_cost {
   font-family: 'Avenir Next';
   font-style: normal;
-  font-weight: 700;
+  font-weight: 900;
   font-size: 18px;
   line-height: 40px;
   margin-left: 14px;
