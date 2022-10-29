@@ -1,0 +1,117 @@
+.services-container {
+    display: flex;
+    margin: auto;
+    width: max-content;
+}
+
+.service_item {
+    position: relative;
+    overflow: hidden;
+    width: 306px;
+    height: 607px;
+    margin: 61px 18px;
+    background-color: #535367;
+    filter: drop-shadow(0px 6px 10px rgba(0, 0, 0, 0.14)) drop-shadow(0px 1px 18px rgba(0, 0, 0, 0.12)) drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.2));
+    border-radius: 6px;
+}
+
+.services_image {height: 169px;}
+
+.services_title {
+    margin-left: 6px;
+    margin-top: 23px;
+    font-family: 'Avenir Next';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 21px;
+    line-height: 29px;
+    color: #FFFFFF;
+}
+
+.services_description {
+    margin-top: 14px;
+    font-family: 'Avenir Next';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: #FFFFFF;
+    background-color: #5C5C77;
+    padding: 16px;
+    border-radius: 4px;
+}
+
+.services_buffs {
+    margin-top: 17px;
+    font-family: 'Avenir Next';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    margin-left: 3px;
+    line-height: 22px;
+    color: #FFFFFF;
+}
+
+.services_upgrade_container {
+    bottom: 25px;
+    position: absolute;
+    left: 27px;
+    right: 27px;
+}
+
+.services_buff_description {margin-bottom: 7px;}
+
+.services_button {
+    margin-top: 10px;
+    width: 100%;
+    height: 43px;
+    font-family: 'Avenir Next';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+    border: none;
+    border-radius: 4px;
+    color: #292929;
+}
+
+.service_content_container {
+    padding: 0 20px;
+}
+
+.services_cost::before {
+  width: 37px;
+  height: 37px;
+  content: "";
+  float: left;
+  display: block;
+  margin-right: 6px;
+  background: url("interface_icons/money_icon.png") no-repeat;
+  background-size: contain;
+}
+
+.services_cost {
+  font-family: 'Avenir Next';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 37px;
+  color: #FFFFFF;
+  text-shadow: 0px 0.876872px 0.876872px rgba(0, 0, 0, 0.14), 0px 1.75374px 0.876872px rgba(0, 0, 0, 0.12), 0px 0.876872px 2.63062px rgba(0, 0, 0, 0.2);
+}
+
+.services_button_active {
+  background: #535367;
+  color: #FA816E;
+  border: 2px solid #FA816E;
+}
+
+.services_button_available {
+  background: linear-gradient(137.23deg, #FAA161 24.03%, #F71C92 199.29%);
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.services_button_cooldown, .services_button_unavailable{
+  background: #C4C4C4;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
