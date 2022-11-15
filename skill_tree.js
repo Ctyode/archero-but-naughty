@@ -1,34 +1,36 @@
+let money = 200;
+
 let dummy = {
   "skills": {
     "hero_tavern": {
       "state": "active"
     },
     "tavern_magazine": {
-      "state": "available"
+      "state": "active"
     },
     "lyra_photo": {
-      "state": "available"
+      "state": "active"
     },
     "everyday_lyra": {
-      "state": "available"
+      "state": "default"
     },
     "everyday_question": {
-      "state": "available"
+      "state": "default"
     },
     "current_title": {
-      "state": "available"
+      "state": "default"
     },
     "virginity": {
-      "state": "available"
+      "state": "default"
     },
     "first_time": {
-      "state": "available"
+      "state": "default"
     },
     "last_time": {
-      "state": "available"
+      "state": "default"
     },
     "sex_experience": {
-      "state": "available"
+      "state": "default"
     }
   }
 }
@@ -217,6 +219,22 @@ let tree = {
   }
 }
 
+function generateDummy() {
+  for (var item in tree.skills) {
+
+    
+    if(dummy.skills[item].state == "active") {
+      dummy.skills[item].state = "active"
+    } else if(money >= tree.skills[item].cost) {
+      dummy.skills[item].state = "available"
+    } else if(money < tree.skills[item].cost) {
+      dummy.skills[item].state = "unavailable"
+    }
+  }
+}
+
+generateDummy();
+
 let skill_tree = document.getElementById("skill-tree");
 let info_container = document.getElementById("info-container");
 
@@ -228,6 +246,8 @@ function checkButtonType(item_name, button) {
     button.classList.add("info_button_available");
   } else if(state == "unavailable") {
     button.classList.add("info_button_unavailable");
+  } else if(state == "active") {
+    button.classList.add("info_button_active")
   }
 }
 
@@ -388,11 +408,18 @@ function generateSkillTree() {
       let button = document.createElement('button');
       button.classList.add("info_button");
 
+      console.log(item)
       if(state == "active") {
         button.innerHTML = "Active";
       } else {
         button.innerHTML = "Upgrade";
+       
+        button.setAttribute("name", item)
+        button.addEventListener('click', function() { 
+          setActiveSkillState(button, cost, skill_item)
+        }, false);
       }
+
       checkButtonType(item, button);
 
       info_item.appendChild(image);
@@ -400,8 +427,9 @@ function generateSkillTree() {
       info_item.appendChild(description);
       info_item.appendChild(buffs);
 
+      upgrade_container.appendChild(button);
+
       if(state != "active") {
-        upgrade_container.appendChild(button);
         upgrade_container.appendChild(cost);
       }
 
@@ -413,6 +441,18 @@ function generateSkillTree() {
       
   }
 
+
+}
+
+function setActiveSkillState(button, cost, skill_item) {
+  button.classList.remove("info_button_available")
+  button.classList.add("info_button_active")
+  button.innerHTML = "Active";
+
+  cost.remove()
+
+  skill_item.classList.remove("item-available")
+  skill_item.classList.add("item-active")
 
 }
 
@@ -428,6 +468,7 @@ function openInfo(evt, infoName) {
   for (i = 0; i < infocontent.length; i++) {
     infocontent[i].style.visibility = "hidden";
     infocontent[i].style.opacity = "0.0";
+    infocontent[i].style.zIndex = "0";
   }
 
   // Get all elements with class="infolinks" and remove the class "active"
@@ -440,6 +481,7 @@ function openInfo(evt, infoName) {
   // Show the current info, and add an "active" class to the button that opened the info
   document.getElementById(infoName).style.visibility = "visible";
   document.getElementById(infoName).style.opacity = "1.0";
+  document.getElementById(infoName).style.zIndex = "200"
   evt.currentTarget.className += " selected_item";
 }
 
