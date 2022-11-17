@@ -1,6 +1,6 @@
 let money = 200;
 
-let dummy = {
+let default_dummy = {
   "skills": {
     "hero_tavern": {
       "state": "active"
@@ -34,6 +34,13 @@ let dummy = {
     }
   }
 }
+
+if(localStorage.getItem('dummy_tree') == null) {
+  localStorage.setItem('dummy_tree', JSON.stringify(default_dummy));
+
+}
+var retrievedDummy = localStorage.getItem('dummy_tree');
+var retrievedDummyJson = JSON.parse(retrievedDummy);
 
 let tree = {
   "skills": {
@@ -222,15 +229,16 @@ let tree = {
 function generateDummy() {
   for (var item in tree.skills) {
 
-    
-    if(dummy.skills[item].state == "active") {
-      dummy.skills[item].state = "active"
+    if(retrievedDummyJson.skills[item].state == "active") {
+
+      retrievedDummyJson.skills[item].state = "active"
     } else if(money >= tree.skills[item].cost) {
-      dummy.skills[item].state = "available"
+      retrievedDummyJson.skills[item].state = "available"
     } else if(money < tree.skills[item].cost) {
-      dummy.skills[item].state = "unavailable"
+      retrievedDummyJson.skills[item].state = "unavailable"
     }
   }
+
 }
 
 generateDummy();
@@ -240,7 +248,7 @@ let info_container = document.getElementById("info-container");
 
 
 function checkButtonType(item_name, button) {
-  let state = dummy.skills[item_name].state;
+  let state = retrievedDummyJson.skills[item_name].state;
 
   if(state == "available") {
     button.classList.add("info_button_available");
@@ -249,10 +257,11 @@ function checkButtonType(item_name, button) {
   } else if(state == "active") {
     button.classList.add("info_button_active")
   }
+
 }
 
 function checkSkillIconType(item_name, skill_item) {
-  let state = dummy.skills[item_name].state;
+  let state = retrievedDummyJson.skills[item_name].state;
 
   if(state == "available") {
     skill_item.classList.add("item-available");
@@ -267,7 +276,7 @@ let counter = 0;
 function generateSkillTree() {
 
   for (var item in tree.skills) {
-      let state = dummy.skills[item].state;
+      let state = retrievedDummyJson.skills[item].state;
 
 
       let skill_item = document.createElement('button');
@@ -416,7 +425,7 @@ function generateSkillTree() {
        
         button.setAttribute("name", item)
         button.addEventListener('click', function() { 
-          setActiveSkillState(button, cost, skill_item)
+          setActiveSkillState(button, cost, skill_item, button.getAttribute("name"))
         }, false);
       }
 
@@ -444,7 +453,7 @@ function generateSkillTree() {
 
 }
 
-function setActiveSkillState(button, cost, skill_item) {
+function setActiveSkillState(button, cost, skill_item, item_type) {
   button.classList.remove("info_button_available")
   button.classList.add("info_button_active")
   button.innerHTML = "Active";
@@ -453,7 +462,13 @@ function setActiveSkillState(button, cost, skill_item) {
 
   skill_item.classList.remove("item-available")
   skill_item.classList.add("item-active")
+  
 
+  retrievedDummyJson.skills[item_type].state = "active"
+
+  console.log(retrievedDummyJson.skills[item_type].state, retrievedDummyJson)
+
+  localStorage.setItem('dummy_tree', JSON.stringify(retrievedDummyJson));
 }
 
 
